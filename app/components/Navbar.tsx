@@ -41,19 +41,70 @@ const Navbar = () => {
               ></label>
               <ul className="menu p-4 w-44 min-h-full bg-base-200 bg-opacity-50 text-white">
                 <li>
-                  <a>HOME</a>
+                  <motion.div
+                    key="menu-home"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.25 },
+                    }}
+                  >
+                    <a>HOME</a>
+                  </motion.div>
                 </li>
                 <li>
-                  <a>RSVP</a>
+                  <motion.div
+                    key="menu-rsvp"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.25 },
+                    }}
+                  >
+                    <a>RSVP</a>
+                  </motion.div>
                 </li>
                 <li>
-                  <a>VENUE</a>
+                  <motion.div
+                    key="menu-venue"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.25 },
+                    }}
+                  >
+                    <a>VENUE</a>
+                  </motion.div>
                 </li>
                 <li>
-                  <a>FOOD</a>
+                  <motion.div
+                    key="menu-attire"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.25 },
+                    }}
+                  >
+                    <a>ATTIRE</a>
+                  </motion.div>
                 </li>
                 <li>
-                  <a>FAQs</a>
+                  <motion.div
+                    key="menu-food"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.25 },
+                    }}
+                  >
+                    <a>FOOD</a>
+                  </motion.div>
+                </li>
+                <li>
+                  <motion.div
+                    key="menu-faqs"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.25 },
+                    }}
+                  >
+                    <a>FAQs</a>
+                  </motion.div>
                 </li>
               </ul>
             </div>
@@ -83,7 +134,7 @@ const Navbar = () => {
             </li>
             <li>
               <motion.div
-                key="nav-home"
+                key="nav-rsvp"
                 whileHover={{
                   scale: 1.1,
                   transition: { duration: 0.25 },
@@ -94,7 +145,7 @@ const Navbar = () => {
             </li>
             <li>
               <motion.div
-                key="nav-home"
+                key="nav-venue"
                 whileHover={{
                   scale: 1.1,
                   transition: { duration: 0.25 },
@@ -105,7 +156,18 @@ const Navbar = () => {
             </li>
             <li>
               <motion.div
-                key="nav-home"
+                key="nav-attire"
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                <a>ATTIRE</a>
+              </motion.div>
+            </li>
+            <li>
+              <motion.div
+                key="nav-food"
                 whileHover={{
                   scale: 1.1,
                   transition: { duration: 0.25 },
@@ -116,7 +178,7 @@ const Navbar = () => {
             </li>
             <li>
               <motion.div
-                key="nav-home"
+                key="nav-faqs"
                 whileHover={{
                   scale: 1.1,
                   transition: { duration: 0.25 },
