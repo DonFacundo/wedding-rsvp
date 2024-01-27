@@ -19,7 +19,7 @@ const config: Config = {
     themes: [
       {
         weddingtheme: {
-          primary: "#774a3c",
+          primary: "#59362f",
 
           secondary: "#ddbaa2",
 
@@ -27,7 +27,7 @@ const config: Config = {
 
           neutral: "#110a17",
 
-          "base-100": "#6b4336",
+          "base-100": "#B16B5E",
 
           info: "#00dbff",
 
