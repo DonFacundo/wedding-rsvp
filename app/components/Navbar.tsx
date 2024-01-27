@@ -58,24 +58,72 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-          <a className="btn btn-ghost text-3xl">G & C</a>
+          <motion.div
+            key="nav-home"
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.25 },
+            }}
+          >
+            <a className="btn btn-ghost text-3xl">G & C</a>
+          </motion.div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>HOME</a>
+              <motion.div
+                key="nav-home"
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                <a>HOME</a>
+              </motion.div>
             </li>
             <li>
-              <a>RSVP</a>
+              <motion.div
+                key="nav-home"
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                <a>RSVP</a>
+              </motion.div>
             </li>
             <li>
-              <a>VENUE</a>
+              <motion.div
+                key="nav-home"
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                <a>VENUE</a>
+              </motion.div>
             </li>
             <li>
-              <a>FOOD</a>
+              <motion.div
+                key="nav-home"
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                <a>FOOD</a>
+              </motion.div>
             </li>
             <li>
-              <a>FAQs</a>
+              <motion.div
+                key="nav-home"
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                <a>FAQs</a>
+              </motion.div>
             </li>
           </ul>
         </div>
