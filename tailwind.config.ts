@@ -21,13 +21,13 @@ const config: Config = {
         weddingtheme: {
           primary: "#774a3c",
 
-          secondary: "#D9B297",
+          secondary: "#ddbaa2",
 
           accent: "#006da9",
 
           neutral: "#110a17",
 
-          "base-100": "#AF7360",
+          "base-100": "#6b4336",
 
           info: "#00dbff",
 
