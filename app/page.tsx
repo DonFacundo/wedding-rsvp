@@ -3,30 +3,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="justify-between font-playfair">
-      {/* <div className="drawer">
-        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
-          <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
-            Open drawer
-          </label>
-        </div>
-        <div className="drawer-side">
-          <label
-            htmlFor="my-drawer"
-            aria-label="close sidebar"
-            className="drawer-overlay"
-          ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
-          </ul>
-        </div>
-      </div> */}
-
       <div className="text-center w-full bg-[url('/assets/img/flower-border3.png')] bg-center bg-cover bg-no-repeat py-28">
         <h1 className="text-3xl md:text-5xl text-white font-light mb-2 font-poiretone">
           GERALD DWYNE M. DE LEON
@@ -50,9 +26,34 @@ export default function Home() {
         </h1>
       </div>
 
-      <div className="w-full min-h-96 py-16 bg-secondary flex flex-col items-center text-white px-4">
-        <article className="prose text-center text-xl">
+      <div className="w-full min-h-96 py-16 bg-secondary flex flex-col items-center text-white px-12">
+        <article className="prose text-center text-md md:text-xl">
           <p className="text-white font-poiretone">
+            To our Beloved Family and Friends,
+          </p>
+          <p className="text-white font-poiretone">This is it!</p>
+          <p className="text-white font-poiretone">
+            We are absolutely delighted to share with you this special chapter
+            in our lives.
+          </p>
+          <p className="text-white font-poiretone">
+            Your presence in the celebration of our love means the world to us
+            and we can’t wait for you to share in the joy and excitement of this
+            magical day.
+          </p>
+          <p className="text-white font-poiretone">
+            Please feel free to explore the various sections of this website,
+            and most importantly, save the date as we count down to the moment
+            we say “I do”.
+          </p>
+          <p className="text-white font-poiretone">
+            Thank you for being part of our love story. We can’t wait to create
+            more wonderful memories with you.
+          </p>
+          <p className="text-white font-poiretone">With love,</p>
+          <p className="text-white font-poiretone">Gerald and Claire</p>
+
+          {/* <p className="text-white font-poiretone">
             Zombies reversus ab inferno, nam malum cerebro. De carne animata
             corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi
             undead dictum mauris. Hi mortuis soulless creaturas, imo monstra
@@ -71,7 +72,7 @@ export default function Home() {
           </p>
           <p className="text-white">
             <em>Sexbam Roch3lle & Jopay get GET Awwww!</em>
-          </p>
+          </p> */}
         </article>
       </div>
     </main>
