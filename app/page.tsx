@@ -13,6 +13,10 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ ease: "easeInOut", duration: 0.25, delay: 0 }}
+          whileHover={{
+            scale: 1.02,
+            transition: { duration: 0.25 },
+          }}
         >
           <h1 className="text-3xl md:text-5xl text-white font-light mb-2 font-poiretone">
             GERALD DWYNE M. DE LEON
@@ -33,6 +37,10 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ ease: "easeInOut", duration: 0.25, delay: 0.5 }}
+          whileHover={{
+            scale: 1.02,
+            transition: { duration: 0.25 },
+          }}
         >
           <h1 className="text-3xl md:text-5xl text-white font-light mb-10 font-poiretone">
             ARVELYN CLAIRE T. TAMSE
@@ -70,6 +78,10 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ ease: "easeInOut", duration: 0.25, delay: 1 }}
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.25 },
+          }}
         >
           <h1 className="text-xl md:text-3xl text-white font-poiretone">
             MAY 9, 2024
