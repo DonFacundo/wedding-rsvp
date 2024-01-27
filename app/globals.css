@@ -14,6 +14,14 @@
   }
 }
 
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-poiretone {
+  font-family: var(--font-poiretone);
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));

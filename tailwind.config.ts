@@ -15,6 +15,31 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        weddingtheme: {
+          primary: "#774a3c",
+
+          secondary: "#D9B297",
+
+          accent: "#006da9",
+
+          neutral: "#110a17",
+
+          "base-100": "#AF7360",
+
+          info: "#00dbff",
+
+          success: "#00d578",
+
+          warning: "#c39688",
+
+          error: "#ff6870",
+        },
+      },
+    ],
+  },
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
 export default config;
