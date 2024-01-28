@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { TConductorInstance } from "react-canvas-confetti/dist/types";
+import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 
 import { updateRSVP } from "@/libs/firebase";
 
@@ -18,6 +20,7 @@ const RSVPForm = ({
   const router = useRouter();
   const [showPartialYesForm, setShowPartialYesForm] = useState(false);
   const [updateRSVPForm, setUpdateShowRSVPForm] = useState(false);
+  const [conductor, setConductor] = useState<TConductorInstance>();
 
   const handleUpdateRSVP = async (type: string, data: any) => {
     switch (type) {
@@ -26,6 +29,7 @@ const RSVPForm = ({
           (attendee: any) => ({ ...attendee, rsvp: true })
         );
         await updateRSVP("rsvp", slug, attendeeDetails);
+        conductor?.shoot();
         setUpdateShowRSVPForm(false);
         router.refresh();
         break;
@@ -42,6 +46,13 @@ const RSVPForm = ({
         break;
     }
   };
+  const onInitCanvassConfetti = ({
+    conductor,
+  }: {
+    conductor: TConductorInstance;
+  }) => {
+    setConductor(conductor);
+  };
 
   const confirmedAttendees = () =>
     attendeeDetails.attendees
@@ -49,8 +60,17 @@ const RSVPForm = ({
       .map((attendees: any) => attendees.firstName);
 
   return (
-    <AnimatePresence key="rsvp-form">
+    <AnimatePresence key="rsvp-ap">
+      <Fireworks
+        onInit={onInitCanvassConfetti}
+        decorateOptions={(options: any) => ({
+          ...options,
+          colors: ["#59362f", "#ddbaa2", "#B16B5E"],
+          particleCount: 700,
+        })}
+      />
       <motion.div
+        key="rsvp-form1"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
