@@ -102,7 +102,7 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
         >
           <p className="text-sm text-white font-poiretone">
             <em>
-              at Settler's County Manor
+              at Settlers County Manor
               <br />
               81 Waimauku Station Road Waimauku 0812
             </em>
