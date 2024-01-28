@@ -18,7 +18,7 @@ export default async function RSVP({ params }: { params: any }) {
   return (
     <main className="justify-between font-playfair">
       <Navbar slug={slug} />
-      <RSVPpage attendeeDetails={attendeeDetails} />
+      <RSVPpage attendeeDetails={attendeeDetails} slug={slug} />
     </main>
   );
 }

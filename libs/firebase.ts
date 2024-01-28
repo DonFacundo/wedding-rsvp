@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, getDoc, Timestamp } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  Timestamp,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
@@ -18,8 +24,8 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-const getAttendeeDetails = async (collection: any, id: any) => {
-  let docRef = doc(db, collection, id);
+const getAttendeeDetails = async (collection: any, docId: string) => {
+  let docRef = doc(db, collection, docId);
 
   let result = null;
   let error = null;
@@ -41,4 +47,10 @@ const getDaysLeftBeforeEvent = async () => {
   return Math.ceil(diff / (1000 * 60 * 60 * 24));
 };
 
-export { getAttendeeDetails, getDaysLeftBeforeEvent };
+const updateRSVP = async (collection: string, docId: string, data: any) => {
+  const docRef = doc(db, collection, docId);
+
+  await updateDoc(docRef, { ...data, lastUpdated: serverTimestamp() });
+};
+
+export { getAttendeeDetails, getDaysLeftBeforeEvent, updateRSVP };

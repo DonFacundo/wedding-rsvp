@@ -4,7 +4,13 @@ import { useState, useEffect } from "react";
 import RSVPForm from "./RSVPForm";
 import useWindowDimensions from "@/hooks/useWindowDimension";
 
-const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
+const RSVPpage = ({
+  attendeeDetails,
+  slug,
+}: {
+  attendeeDetails: any;
+  slug: string;
+}) => {
   const { width, height } = useWindowDimensions();
 
   const [bg, setBg] = useState(
@@ -44,7 +50,7 @@ const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
             transition: `background-image 1s ease-in-out`,
           }}
         >
-          <RSVPForm attendeeDetails={attendeeDetails} />
+          <RSVPForm attendeeDetails={attendeeDetails} slug={slug} />
         </div>
       )}
     </>
