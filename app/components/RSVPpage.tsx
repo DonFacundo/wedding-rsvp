@@ -15,7 +15,7 @@ const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
     const bgChange = setInterval(() => {
       if (
         bg === "/assets/img/weddingrsvp1.JPG" ||
-        "/assets/img/weddingrsvp1-mob.JPG"
+        bg === "/assets/img/weddingrsvp1-mob.JPG"
       )
         setBg(
           width < 500
