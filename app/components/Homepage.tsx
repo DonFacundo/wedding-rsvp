@@ -144,7 +144,7 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
           </p>
         </motion.div>
       </div>
-      <div className="w-full min-h-96 py-16 bg-secondary flex flex-col items-center text-secondary px-12">
+      <div className="w-full py-16 bg-secondary flex flex-col items-center text-secondary px-12">
         <motion.div
           key="welcome-message"
           initial={{ opacity: 0 }}

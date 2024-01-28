@@ -75,7 +75,7 @@ const RSVPForm = ({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
         exit={{ opacity: 0, x: 20 }}
-        className="bg-secondary h-fit bg-opacity-60 p-4 sm:p-8 rounded-lg md:mr-20 mx-6 w-full md:w-2/5 md:order-2 md:ml-auto border-none drop-shadow-2xl"
+        className="bg-secondary h-fit bg-opacity-60 p-4 sm:p-8 rounded-lg md:mr-20 mx-6 max-w-xl w-full md:w-2/5 md:order-2 md:ml-auto border-none drop-shadow-2xl"
       >
         {attendeeDetails.lastUpdated && !updateRSVPForm ? (
           <>
