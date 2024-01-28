@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ slug }: { slug: string }) => {
   return (
     <motion.div
       key="navbar"
@@ -41,70 +42,82 @@ const Navbar = () => {
               ></label>
               <ul className="menu p-4 w-44 min-h-full bg-base-200 bg-opacity-50 text-white">
                 <li>
-                  <motion.div
-                    key="menu-home"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.25 },
-                    }}
-                  >
-                    <a>HOME</a>
-                  </motion.div>
+                  <Link href={`/${slug}`}>
+                    <motion.div
+                      key="menu-home"
+                      whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 0.25 },
+                      }}
+                    >
+                      HOME
+                    </motion.div>
+                  </Link>
                 </li>
                 <li>
-                  <motion.div
-                    key="menu-rsvp"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.25 },
-                    }}
-                  >
-                    <a>RSVP</a>
-                  </motion.div>
+                  <Link href={`/${slug}/RSVP`}>
+                    <motion.div
+                      key="menu-rsvp"
+                      whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 0.25 },
+                      }}
+                    >
+                      RSVP
+                    </motion.div>
+                  </Link>
                 </li>
                 <li>
-                  <motion.div
-                    key="menu-venue"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.25 },
-                    }}
-                  >
-                    <a>VENUE</a>
-                  </motion.div>
+                  <Link href={`/${slug}/venue`}>
+                    <motion.div
+                      key="menu-venue"
+                      whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 0.25 },
+                      }}
+                    >
+                      VENUE
+                    </motion.div>
+                  </Link>
                 </li>
                 <li>
-                  <motion.div
-                    key="menu-attire"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.25 },
-                    }}
-                  >
-                    <a>ATTIRE</a>
-                  </motion.div>
+                  <Link href={`/${slug}/attire`}>
+                    <motion.div
+                      key="menu-attire"
+                      whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 0.25 },
+                      }}
+                    >
+                      ATTIRE
+                    </motion.div>
+                  </Link>
                 </li>
                 <li>
-                  <motion.div
-                    key="menu-food"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.25 },
-                    }}
-                  >
-                    <a>FOOD</a>
-                  </motion.div>
+                  <Link href={`/${slug}/food`}>
+                    <motion.div
+                      key="menu-food"
+                      whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 0.25 },
+                      }}
+                    >
+                      FOOD
+                    </motion.div>
+                  </Link>
                 </li>
                 <li>
-                  <motion.div
-                    key="menu-faqs"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.25 },
-                    }}
-                  >
-                    <a>FAQs</a>
-                  </motion.div>
+                  <Link href={`/${slug}/faqs`}>
+                    <motion.div
+                      key="menu-faqs"
+                      whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 0.25 },
+                      }}
+                    >
+                      FAQs
+                    </motion.div>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -122,70 +135,82 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <motion.div
-                key="nav-home"
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.25 },
-                }}
-              >
-                <a>HOME</a>
-              </motion.div>
+              <Link href={`/${slug}`}>
+                <motion.div
+                  key="nav-home"
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  HOME
+                </motion.div>
+              </Link>
             </li>
             <li>
-              <motion.div
-                key="nav-rsvp"
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.25 },
-                }}
-              >
-                <a>RSVP</a>
-              </motion.div>
+              <Link href={`/${slug}/RSVP`}>
+                <motion.div
+                  key="nav-rsvp"
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  RSVP
+                </motion.div>
+              </Link>
             </li>
             <li>
-              <motion.div
-                key="nav-venue"
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.25 },
-                }}
-              >
-                <a>VENUE</a>
-              </motion.div>
+              <Link href={`/${slug}/venue`}>
+                <motion.div
+                  key="nav-venue"
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  VENUE
+                </motion.div>
+              </Link>
             </li>
             <li>
-              <motion.div
-                key="nav-attire"
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.25 },
-                }}
-              >
-                <a>ATTIRE</a>
-              </motion.div>
+              <Link href={`/${slug}/attire`}>
+                <motion.div
+                  key="nav-attire"
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  ATTIRE
+                </motion.div>
+              </Link>
             </li>
             <li>
-              <motion.div
-                key="nav-food"
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.25 },
-                }}
-              >
-                <a>FOOD</a>
-              </motion.div>
+              <Link href={`/${slug}/food`}>
+                <motion.div
+                  key="nav-food"
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  FOOD
+                </motion.div>
+              </Link>
             </li>
             <li>
-              <motion.div
-                key="nav-faqs"
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.25 },
-                }}
-              >
-                <a>FAQs</a>
-              </motion.div>
+              <Link href={`/${slug}/faqs`}>
+                <motion.div
+                  key="nav-faqs"
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  FAQs
+                </motion.div>
+              </Link>
             </li>
           </ul>
         </div>

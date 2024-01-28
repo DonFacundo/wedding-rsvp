@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Playfair, Poiret_One } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "./components/Navbar";
-
 const playfair = Playfair({ subsets: ["latin"], variable: "--font-playfair" });
 const poiretone = Poiret_One({
   weight: "400",
@@ -24,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="weddingtheme">
       <body className={`${playfair.variable} ${poiretone.variable}`}>
-        <Navbar />
         {children}
       </body>
     </html>
