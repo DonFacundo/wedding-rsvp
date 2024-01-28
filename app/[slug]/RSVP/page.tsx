@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { getAttendeeDetails } from "@/libs/firebase";
 
 import Navbar from "../../components/Navbar";
