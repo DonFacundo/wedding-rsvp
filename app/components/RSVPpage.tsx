@@ -6,7 +6,7 @@ import RSVPForm from "./RSVPForm";
 const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [bg, setBg] = useState(
-    width < 426
+    width < 500
       ? `/assets/img/weddingrsvp1-mob.JPG`
       : `/assets/img/weddingrsvp1.JPG`
   );
@@ -18,13 +18,13 @@ const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
         "/assets/img/weddingrsvp1-mob.JPG"
       )
         setBg(
-          width < 426
+          width < 500
             ? `/assets/img/weddingrsvp2-mob.JPG`
             : `/assets/img/weddingrsvp2.JPG`
         );
       else
         setBg(
-          width < 426
+          width < 500
             ? `/assets/img/weddingrsvp1-mob.JPG`
             : `/assets/img/weddingrsvp1.JPG`
         );
