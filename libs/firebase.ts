@@ -1,12 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  CollectionReference,
-} from "firebase/firestore";
+import { getFirestore, doc, getDoc, Timestamp } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
@@ -39,4 +33,12 @@ const getAttendeeDetails = async (collection: any, id: any) => {
   return { result, error };
 };
 
-export { getAttendeeDetails };
+const getDaysLeftBeforeEvent = async () => {
+  const eventDate = Timestamp.fromDate(new Date(2024, 4, 9));
+  const currentDate = Timestamp.now();
+
+  const diff = eventDate.toMillis() - currentDate.toMillis();
+  return Math.ceil(diff / (1000 * 60 * 60 * 24));
+};
+
+export { getAttendeeDetails, getDaysLeftBeforeEvent };

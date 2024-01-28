@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import RSVPForm from "./RSVPForm";
+import useWindowDimensions from "@/hooks/useWindowDimension";
 
 const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const { width, height } = useWindowDimensions();
+
   const [bg, setBg] = useState(
-    width < 500
+    width && width < 500
       ? `/assets/img/weddingrsvp1-mob.JPG`
       : `/assets/img/weddingrsvp1.JPG`
   );
@@ -18,13 +20,13 @@ const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
         bg === "/assets/img/weddingrsvp1-mob.JPG"
       )
         setBg(
-          width < 500
+          width && width < 500
             ? `/assets/img/weddingrsvp2-mob.JPG`
             : `/assets/img/weddingrsvp2.JPG`
         );
       else
         setBg(
-          width < 500
+          width && width < 500
             ? `/assets/img/weddingrsvp1-mob.JPG`
             : `/assets/img/weddingrsvp1.JPG`
         );
@@ -33,15 +35,19 @@ const RSVPpage = ({ attendeeDetails }: { attendeeDetails: any }) => {
   }, [bg]);
 
   return (
-    <div
-      className={`h-screen w-full bg-secondary bg-left bg-cover bg-no-repeat flex items-center`}
-      style={{
-        backgroundImage: `url(${bg})`,
-        transition: `background-image 1s ease-in-out`,
-      }}
-    >
-      <RSVPForm attendeeDetails={attendeeDetails} />
-    </div>
+    <>
+      {width && (
+        <div
+          className={`h-screen w-full bg-secondary bg-left bg-cover bg-no-repeat flex items-center`}
+          style={{
+            backgroundImage: `url(${bg})`,
+            transition: `background-image 1s ease-in-out`,
+          }}
+        >
+          <RSVPForm attendeeDetails={attendeeDetails} />
+        </div>
+      )}
+    </>
   );
 };
 

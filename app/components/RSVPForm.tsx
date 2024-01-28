@@ -19,7 +19,7 @@ const RSVPForm = ({ attendeeDetails }: { attendeeDetails: any }) => {
       >
         <article className="prose text-center">
           <h1 className="text-primary font-bold text-4xl mb-4">R.S.V.P.</h1>
-          <h2 className="text-primary my-0">
+          <h2 className="text-primary my-0 text-md">
             We would love for you to come,
             <br />
             <span className="font-poiretone">{attendeeDetails.name}</span>
@@ -46,7 +46,7 @@ const RSVPForm = ({ attendeeDetails }: { attendeeDetails: any }) => {
           transition={{ ease: "easeInOut", duration: 1.5 }}
         >
           <Image
-            className="mx-auto my-3"
+            className="mx-auto sm:my-2 md:my-3"
             src={"/assets/img/flower-divider.png"}
             alt="flower divider"
             width={75}
@@ -138,25 +138,66 @@ const RSVPForm = ({ attendeeDetails }: { attendeeDetails: any }) => {
                     </button>
                   </motion.div>
                 </div>
-                <div className="divider divider-primary text-primary my-2">
-                  <em>OR</em>
-                </div>
-                <motion.div
-                  key="rsvp-partial"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.25 },
-                  }}
-                  className="w-full flex justify-center"
-                >
-                  <button
-                    className="btn btn-primary btn-sm btn-outline w-36 float-start"
-                    onClick={() => setShowPartialYesForm(true)}
-                  >
-                    <em>Partial yes</em>
-                    <ChevronDownIcon className="h-4 w-4 text-primary font-bold" />
-                  </button>
-                </motion.div>
+                {attendeeDetails.attendees.length > 1 ? (
+                  <>
+                    <div className="divider divider-primary text-primary my-2">
+                      <em>OR</em>
+                    </div>
+                    <motion.div
+                      key="rsvp-partial"
+                      whileHover={{
+                        scale: 1.02,
+                        transition: { duration: 0.25 },
+                      }}
+                      className="w-full flex justify-center"
+                    >
+                      <button
+                        className="btn btn-primary btn-sm btn-outline w-36 float-start"
+                        onClick={() => setShowPartialYesForm(true)}
+                      >
+                        <em>Partial yes</em>
+                        <ChevronDownIcon className="h-4 w-4 text-primary font-bold" />
+                      </button>
+                    </motion.div>
+                  </>
+                ) : (
+                  attendeeDetails.type === "single" && (
+                    <>
+                      <div className="divider divider-primary text-primary my-2">
+                        <em>AND</em>
+                      </div>
+                      <p className="text-primary text-md my-0">
+                        Will you be bringing a +1?
+                      </p>
+                      <div className="grid grid-cols-2 gap-4 mb-2">
+                        <motion.div
+                          className="col-span-1"
+                          key="plus1-yes"
+                          whileHover={{
+                            scale: 1.02,
+                            transition: { duration: 0.25 },
+                          }}
+                        >
+                          <button className="btn btn-primary btn-sm w-36 float-end">
+                            Yes
+                          </button>
+                        </motion.div>
+                        <motion.div
+                          key="plus1-no"
+                          whileHover={{
+                            scale: 1.02,
+                            transition: { duration: 0.25 },
+                          }}
+                          className="col-span-1"
+                        >
+                          <button className="btn btn-primary btn-sm btn-outline w-36 float-start">
+                            No
+                          </button>
+                        </motion.div>
+                      </div>
+                    </>
+                  )
+                )}
               </motion.div>
             )}
           </AnimatePresence>

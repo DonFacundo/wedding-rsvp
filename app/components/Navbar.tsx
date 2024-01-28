@@ -125,11 +125,13 @@ const Navbar = ({ slug }: { slug: string }) => {
           <motion.div
             key="nav-home"
             whileHover={{
-              scale: 1.1,
+              scale: 1.05,
               transition: { duration: 0.25 },
             }}
           >
-            <a className="btn btn-ghost text-3xl">G & C</a>
+            <Link href={`/${slug}`} className="btn btn-ghost text-3xl">
+              G & C
+            </Link>
           </motion.div>
         </div>
         <div className="navbar-center hidden lg:flex">

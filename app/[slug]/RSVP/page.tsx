@@ -7,7 +7,6 @@ import RSVPpage from "@/app/components/RSVPpage";
 
 const getAttendeeData = async (slug: string) => {
   const data = await getAttendeeDetails("rsvp", slug).then((res) => res);
-
   return data.result;
 };
 

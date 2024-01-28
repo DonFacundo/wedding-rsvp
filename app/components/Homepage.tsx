@@ -1,9 +1,11 @@
 "use client";
 
+import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
-const Homepage = () => {
+const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
   return (
     <>
       <div className="text-center w-full bg-[url('/assets/img/flower-border3.png')] bg-center bg-cover bg-no-repeat py-28">
@@ -87,8 +89,61 @@ const Homepage = () => {
             MAY 9, 2024
           </h1>
         </motion.div>
+        <motion.div
+          key="wedding-venue"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ ease: "easeInOut", duration: 0.25, delay: 1.25 }}
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.25 },
+          }}
+        >
+          <p className="text-sm text-white font-poiretone">
+            <em>
+              at Settler's County Manor
+              <br />
+              81 Waimauku Station Road Waimauku 0812
+            </em>
+          </p>
+        </motion.div>
+        <motion.div
+          key="wedding-rsvp"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ ease: "easeInOut", duration: 0.25, delay: 1.5 }}
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.25 },
+          }}
+          className="w-full flex justify-center mt-8"
+        >
+          <Link href={`/${slug}/RSVP`}>
+            <button className="btn btn-secondary btn-md btn-outline w-fit px-8 float-start">
+              RSVP
+              <ChevronDoubleRightIcon className="h-4 w-4" />
+            </button>
+          </Link>
+        </motion.div>
+        <motion.div
+          key="days-left"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ ease: "easeInOut", duration: 0.25, delay: 1.75 }}
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.25 },
+          }}
+          className="w-full flex justify-center mt-2"
+        >
+          <p className="font-poiretone text-secondary text-xs">
+            {daysLeft} day{daysLeft > 1 && "s"} to go.
+          </p>
+        </motion.div>
       </div>
-
       <div className="w-full min-h-96 py-16 bg-secondary flex flex-col items-center text-secondary px-12">
         <motion.div
           key="welcome-message"
