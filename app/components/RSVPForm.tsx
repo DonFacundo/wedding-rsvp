@@ -121,7 +121,7 @@ const RSVPForm = ({ attendeeDetails }: { attendeeDetails: any }) => {
                       transition: { duration: 0.25 },
                     }}
                   >
-                    <button className="btn btn-primary btn-sm w-36 float-end">
+                    <button className="btn btn-primary btn-outline btn-sm w-36 float-end">
                       Yes
                     </button>
                   </motion.div>
@@ -140,8 +140,10 @@ const RSVPForm = ({ attendeeDetails }: { attendeeDetails: any }) => {
                 </div>
                 {attendeeDetails.attendees.length > 1 ? (
                   <>
-                    <div className="divider divider-primary text-primary my-2">
-                      <em>OR</em>
+                    <div className="flex justify-center">
+                      <div className="divider divider-primary text-primary my-2 w-3/4">
+                        <em>OR</em>
+                      </div>
                     </div>
                     <motion.div
                       key="rsvp-partial"
@@ -163,8 +165,10 @@ const RSVPForm = ({ attendeeDetails }: { attendeeDetails: any }) => {
                 ) : (
                   attendeeDetails.type === "single" && (
                     <>
-                      <div className="divider divider-primary text-primary my-2">
-                        <em>AND</em>
+                      <div className="flex justify-center">
+                        <div className="divider divider-primary text-primary my-2 w-3/4">
+                          <em>AND</em>
+                        </div>
                       </div>
                       <p className="text-primary text-md my-0">
                         Will you be bringing a +1?
@@ -178,7 +182,7 @@ const RSVPForm = ({ attendeeDetails }: { attendeeDetails: any }) => {
                             transition: { duration: 0.25 },
                           }}
                         >
-                          <button className="btn btn-primary btn-sm w-36 float-end">
+                          <button className="btn btn-primary btn-outline btn-sm w-36 float-end">
                             Yes
                           </button>
                         </motion.div>
