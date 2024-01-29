@@ -412,7 +412,7 @@ const FoodPage = () => {
               }}
               className="col-span-1 bg-secondary w-full p-6"
             >
-              <div className="border-primary   border-dashed px-6 border rounded-md bg-none h-full flex justify-center items-center">
+              <div className="border-primary border-dashed px-6 border rounded-md bg-none h-full flex justify-center items-center">
                 <article className="prose py-8 text-center">
                   <FaWineBottle
                     size={25}
