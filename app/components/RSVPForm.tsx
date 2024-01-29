@@ -20,7 +20,11 @@ const RSVPForm = ({
   const router = useRouter();
   const [showPartialYesForm, setShowPartialYesForm] = useState(false);
   const [updateRSVPForm, setUpdateShowRSVPForm] = useState(false);
-  const [partialSelections, setPartialSelections] = useState<any>([]);
+  const [partialSelections, setPartialSelections] = useState<any>(
+    attendeeDetails.attendees
+      .filter((attendee: any) => attendee.rsvp)
+      .map((attendee: any) => attendee.firstName)
+  );
   const [conductor, setConductor] = useState<TConductorInstance>();
 
   const handleUpdateRSVP = async (type: string) => {
@@ -32,6 +36,9 @@ const RSVPForm = ({
         await updateRSVP("rsvp", slug, attendeeDetails);
         conductor?.shoot();
         setUpdateShowRSVPForm(false);
+        setPartialSelections(
+          attendeeDetails.attendees.map((attendee: any) => attendee.firstName)
+        );
         router.refresh();
         break;
       case "noToAll":
@@ -40,6 +47,7 @@ const RSVPForm = ({
         );
         await updateRSVP("rsvp", slug, attendeeDetails);
         setUpdateShowRSVPForm(false);
+        setPartialSelections([]);
         router.refresh();
         break;
       case "partialYes":
