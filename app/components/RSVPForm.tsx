@@ -119,7 +119,7 @@ const RSVPForm = ({
               </p>
               <h2 className="text-primary my-0 text-md">
                 {confirmedAttendees().length > 0
-                  ? "We'll See you there "
+                  ? "We'll see you there "
                   : `But if you ever change you mind${
                       attendeeDetails.attendees.length > 1 ? "s" : ""
                     } `}

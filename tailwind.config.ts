@@ -25,7 +25,7 @@ const config: Config = {
 
           accent: "#006da9",
 
-          neutral: "#110a17",
+          neutral: "#ddbaa2",
 
           "base-100": "#B16B5E",
 

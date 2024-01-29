@@ -1,9 +1,12 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Navbar = ({ slug }: { slug: string }) => {
+  const pathname = usePathname();
+
   return (
     <motion.div
       key="navbar"
@@ -42,7 +45,12 @@ const Navbar = ({ slug }: { slug: string }) => {
               ></label>
               <ul className="menu p-4 w-44 min-h-full bg-base-200 bg-opacity-50 text-white">
                 <li>
-                  <Link href={`/${slug}`}>
+                  <Link
+                    className={`${
+                      pathname.lastIndexOf("/") === 0 ? "active" : ""
+                    }`}
+                    href={`/${slug}`}
+                  >
                     <motion.div
                       key="menu-home"
                       whileHover={{
@@ -55,7 +63,10 @@ const Navbar = ({ slug }: { slug: string }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${slug}/RSVP`}>
+                  <Link
+                    className={`${pathname.includes("/RSVP") ? "active" : ""}`}
+                    href={`/${slug}/RSVP`}
+                  >
                     <motion.div
                       key="menu-rsvp"
                       whileHover={{
@@ -68,7 +79,10 @@ const Navbar = ({ slug }: { slug: string }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${slug}/venue`}>
+                  <Link
+                    className={`${pathname.includes("/venue") ? "active" : ""}`}
+                    href={`/${slug}/venue`}
+                  >
                     <motion.div
                       key="menu-venue"
                       whileHover={{
@@ -81,7 +95,12 @@ const Navbar = ({ slug }: { slug: string }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${slug}/attire`}>
+                  <Link
+                    className={`${
+                      pathname.includes("/attire") ? "active" : ""
+                    }`}
+                    href={`/${slug}/attire`}
+                  >
                     <motion.div
                       key="menu-attire"
                       whileHover={{
@@ -94,7 +113,10 @@ const Navbar = ({ slug }: { slug: string }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${slug}/food`}>
+                  <Link
+                    className={`${pathname.includes("/food") ? "active" : ""}`}
+                    href={`/${slug}/food`}
+                  >
                     <motion.div
                       key="menu-food"
                       whileHover={{
@@ -107,7 +129,10 @@ const Navbar = ({ slug }: { slug: string }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${slug}/faqs`}>
+                  <Link
+                    className={`${pathname.includes("/faqs") ? "active" : ""}`}
+                    href={`/${slug}/faqs`}
+                  >
                     <motion.div
                       key="menu-faqs"
                       whileHover={{
@@ -137,7 +162,10 @@ const Navbar = ({ slug }: { slug: string }) => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href={`/${slug}`}>
+              <Link
+                className={`${pathname.lastIndexOf("/") === 0 ? "active" : ""}`}
+                href={`/${slug}`}
+              >
                 <motion.div
                   key="nav-home"
                   whileHover={{
@@ -150,7 +178,10 @@ const Navbar = ({ slug }: { slug: string }) => {
               </Link>
             </li>
             <li>
-              <Link href={`/${slug}/RSVP`}>
+              <Link
+                className={`${pathname.includes("/RSVP") ? "active" : ""}`}
+                href={`/${slug}/RSVP`}
+              >
                 <motion.div
                   key="nav-rsvp"
                   whileHover={{
@@ -163,7 +194,10 @@ const Navbar = ({ slug }: { slug: string }) => {
               </Link>
             </li>
             <li>
-              <Link href={`/${slug}/venue`}>
+              <Link
+                className={`${pathname.includes("/venue") ? "active" : ""}`}
+                href={`/${slug}/venue`}
+              >
                 <motion.div
                   key="nav-venue"
                   whileHover={{
@@ -176,7 +210,10 @@ const Navbar = ({ slug }: { slug: string }) => {
               </Link>
             </li>
             <li>
-              <Link href={`/${slug}/attire`}>
+              <Link
+                className={`${pathname.includes("/attire") ? "active" : ""}`}
+                href={`/${slug}/attire`}
+              >
                 <motion.div
                   key="nav-attire"
                   whileHover={{
@@ -189,7 +226,10 @@ const Navbar = ({ slug }: { slug: string }) => {
               </Link>
             </li>
             <li>
-              <Link href={`/${slug}/food`}>
+              <Link
+                className={`${pathname.includes("/food") ? "active" : ""}`}
+                href={`/${slug}/food`}
+              >
                 <motion.div
                   key="nav-food"
                   whileHover={{
@@ -202,7 +242,10 @@ const Navbar = ({ slug }: { slug: string }) => {
               </Link>
             </li>
             <li>
-              <Link href={`/${slug}/faqs`}>
+              <Link
+                className={`${pathname.includes("/faqs") ? "active" : ""}`}
+                href={`/${slug}/faqs`}
+              >
                 <motion.div
                   key="nav-faqs"
                   whileHover={{
