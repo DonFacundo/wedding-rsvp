@@ -20,9 +20,10 @@ const RSVPForm = ({
   const router = useRouter();
   const [showPartialYesForm, setShowPartialYesForm] = useState(false);
   const [updateRSVPForm, setUpdateShowRSVPForm] = useState(false);
+  const [partialSelections, setPartialSelections] = useState<any>([]);
   const [conductor, setConductor] = useState<TConductorInstance>();
 
-  const handleUpdateRSVP = async (type: string, data: any) => {
+  const handleUpdateRSVP = async (type: string) => {
     switch (type) {
       case "yesToAll":
         attendeeDetails.attendees = attendeeDetails.attendees.map(
@@ -41,11 +42,31 @@ const RSVPForm = ({
         setUpdateShowRSVPForm(false);
         router.refresh();
         break;
+      case "partialYes":
+        attendeeDetails.attendees = attendeeDetails.attendees.map(
+          (attendee: any) => ({
+            ...attendee,
+            rsvp: partialSelections.includes(attendee.firstName),
+          })
+        );
+        await updateRSVP("rsvp", slug, attendeeDetails);
+        setUpdateShowRSVPForm(false);
+        router.refresh();
+        break;
 
       default:
         break;
     }
   };
+
+  const handlePartialYesCheckbox = (e: any, attendee: any) => {
+    e.target.checked
+      ? setPartialSelections([...partialSelections, attendee.firstName])
+      : setPartialSelections(
+          partialSelections.filter((ps: any) => ps !== attendee.firstName)
+        );
+  };
+
   const onInitCanvassConfetti = ({
     conductor,
   }: {
@@ -209,6 +230,12 @@ const RSVPForm = ({
                           <input
                             type="checkbox"
                             className="checkbox checkbox-xs mr-3"
+                            checked={partialSelections.includes(
+                              attendee.firstName
+                            )}
+                            onChange={(e) =>
+                              handlePartialYesCheckbox(e, attendee)
+                            }
                           />
                           <span className="label-text font-poiretone text-primary font-semibold">
                             {attendee.lastName + ", " + attendee.firstName}
@@ -226,7 +253,7 @@ const RSVPForm = ({
                     >
                       <button
                         className="btn btn-primary btn-sm w-36"
-                        onClick={() => setShowPartialYesForm(false)}
+                        onClick={() => handleUpdateRSVP("partialYes")}
                       >
                         Confirm
                       </button>
@@ -251,7 +278,7 @@ const RSVPForm = ({
                       >
                         <button
                           className="btn btn-primary btn-outline btn-sm w-36 float-end"
-                          onClick={() => handleUpdateRSVP("yesToAll", null)}
+                          onClick={() => handleUpdateRSVP("yesToAll")}
                         >
                           Yes
                         </button>
@@ -266,7 +293,7 @@ const RSVPForm = ({
                       >
                         <button
                           className="btn btn-primary btn-sm btn-outline w-36 float-start"
-                          onClick={() => handleUpdateRSVP("noToAll", null)}
+                          onClick={() => handleUpdateRSVP("noToAll")}
                         >
                           No
                         </button>
