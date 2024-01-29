@@ -181,8 +181,8 @@ export default async function RSVP({ params }: { params: any }) {
                 Fruit Platter - with seasonal fresh fruits
               </p>
               <p className="text-md text-primary font-poiretone my-2">
-                Cheese Board - with our chef's selection of cheeses, dips and
-                accompaniments
+                Cheese Board - with our chef&apos;s selection of cheeses, dips
+                and accompaniments
               </p>
               <p className="text-md text-primary font-poiretone my-2">
                 Lemon Tartlets - with blueberry, meringue, and freeze dried
