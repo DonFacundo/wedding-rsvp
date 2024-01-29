@@ -152,7 +152,7 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeInOut", duration: 0.5, delay: 0 }}
         >
-          <article className="prose text-center text-md md:text-xl">
+          <article className="prose text-center text-base md:text-xl">
             <p className="text-primary font-poiretone">
               To our Beloved Family and Friends,
             </p>

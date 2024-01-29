@@ -55,7 +55,7 @@ const VenuePage = () => {
             exit={{ opacity: 0 }}
             transition={{ ease: "easeInOut", duration: 0.25, delay: 0.25 }}
           >
-            <p className="text-md text-primary my-1">
+            <p className="text-base text-primary my-1">
               <em>81 Waimauku Station Road</em>
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ const VenuePage = () => {
             exit={{ opacity: 0 }}
             transition={{ ease: "easeInOut", duration: 0.25, delay: 0.5 }}
           >
-            <p className="text-md text-primary my-1">
+            <p className="text-base text-primary my-1">
               <em>Waimauku 0812</em>
             </p>
           </motion.div>

@@ -117,7 +117,7 @@ const RSVPForm = ({
                   ? "We're glad you could make it."
                   : "Sucks you can't make it."}
               </p>
-              <h2 className="text-primary my-0 text-md">
+              <h2 className="text-primary my-0 text-base">
                 {confirmedAttendees().length > 0
                   ? "We'll see you there "
                   : `But if you ever change you mind${
@@ -174,7 +174,7 @@ const RSVPForm = ({
           <>
             <article className="prose text-center">
               <h1 className="text-primary font-bold text-4xl mb-4">R.S.V.P.</h1>
-              <h2 className="text-primary my-0 text-md">
+              <h2 className="text-primary my-0 text-base">
                 We would love for you to come,
                 <br />
                 <span className="font-poiretone">{attendeeDetails.name}</span>
@@ -211,7 +211,7 @@ const RSVPForm = ({
               />
             </motion.div>
             <article className="prose text-center">
-              <p className="text-primary text-md mb-0 font-semibold">
+              <p className="text-primary text-base mb-0 font-semibold">
                 {showPartialYesForm
                   ? "Who's going to join"
                   : "Will you be joining"}{" "}
@@ -341,7 +341,7 @@ const RSVPForm = ({
                               <em>AND</em>
                             </div>
                           </div>
-                          <p className="text-primary text-md my-0  font-semibold">
+                          <p className="text-primary text-base my-0  font-semibold">
                             Will you be bringing a +1?
                           </p>
                           <div className="grid grid-cols-2 gap-4 mb-2">
