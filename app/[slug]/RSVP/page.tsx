@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { getAttendeeDetails } from "@/libs/firebase";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "@/app/components/Navbar";
 import RSVPpage from "@/app/components/RSVPpage";
 
 const getAttendeeData = async (slug: string) => {
