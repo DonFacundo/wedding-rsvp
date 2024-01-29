@@ -51,6 +51,7 @@ const RSVPForm = ({
         );
         await updateRSVP("rsvp", slug, attendeeDetails);
         setUpdateShowRSVPForm(false);
+        setShowPartialYesForm(false);
         router.refresh();
         break;
 
