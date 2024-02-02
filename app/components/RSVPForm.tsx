@@ -19,6 +19,7 @@ const RSVPForm = ({
 }) => {
   const router = useRouter();
   const [showPartialYesForm, setShowPartialYesForm] = useState(false);
+  const [showPlusOneForm, setShowPlusOneForm] = useState(false);
   const [updateRSVPForm, setUpdateShowRSVPForm] = useState(false);
   const [partialSelections, setPartialSelections] = useState<any>(
     attendeeDetails.attendees
@@ -63,7 +64,45 @@ const RSVPForm = ({
         setShowPartialYesForm(false);
         router.refresh();
         break;
-
+      case "singleYes":
+        setShowPlusOneForm(true);
+        break;
+      case "singleNo":
+        attendeeDetails.attendees = attendeeDetails.attendees.map(
+          (attendee: any) => ({ ...attendee, rsvp: false })
+        );
+        attendeeDetails.plusOne = false;
+        await updateRSVP("rsvp", slug, attendeeDetails);
+        setUpdateShowRSVPForm(false);
+        setPartialSelections([]);
+        router.refresh();
+        break;
+      case "plusOneYes":
+        attendeeDetails.attendees = attendeeDetails.attendees.map(
+          (attendee: any) => ({ ...attendee, rsvp: true })
+        );
+        attendeeDetails.plusOne = true;
+        await updateRSVP("rsvp", slug, attendeeDetails);
+        conductor?.shoot();
+        setUpdateShowRSVPForm(false);
+        setPartialSelections(
+          attendeeDetails.attendees.map((attendee: any) => attendee.firstName)
+        );
+        router.refresh();
+        break;
+      case "plusOneNo":
+        attendeeDetails.attendees = attendeeDetails.attendees.map(
+          (attendee: any) => ({ ...attendee, rsvp: true })
+        );
+        attendeeDetails.plusOne = false;
+        await updateRSVP("rsvp", slug, attendeeDetails);
+        conductor?.shoot();
+        setUpdateShowRSVPForm(false);
+        setPartialSelections(
+          attendeeDetails.attendees.map((attendee: any) => attendee.firstName)
+        );
+        router.refresh();
+        break;
       default:
         break;
     }
@@ -86,10 +125,15 @@ const RSVPForm = ({
   };
 
   const confirmedAttendees = () =>
-    attendeeDetails.attendees
-      .filter((attendees: any) => attendees.rsvp)
-      .map((attendees: any) => attendees.firstName);
-
+    attendeeDetails.type === "family"
+      ? attendeeDetails.attendees
+          .filter((attendees: any) => attendees.rsvp)
+          .map((attendees: any) => attendees.firstName)
+      : attendeeDetails.plusOne
+      ? ["and a +1"]
+      : attendeeDetails.attendees
+          .filter((attendees: any) => attendees.rsvp)
+          .map((attendees: any) => "+1 not included");
   return (
     <AnimatePresence key="rsvp-ap">
       <Fireworks
@@ -106,45 +150,49 @@ const RSVPForm = ({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
         exit={{ opacity: 0, x: 20 }}
-        className="bg-secondary h-fit bg-opacity-60 p-4 sm:p-8 rounded-lg md:mr-20 mx-6 max-w-xl w-full md:w-2/5 md:order-2 md:ml-auto border-none drop-shadow-2xl"
+        className="bg-secondary h-fit bg-opacity-60 p-4 sm:p-8 rounded-lg md:mr-20 2xl:mr-80 mx-6 max-w-xl w-full md:w-2/5 md:order-2 md:ml-auto border-none drop-shadow-2xl"
       >
         {attendeeDetails.lastUpdated && !updateRSVPForm ? (
           <>
             <article className="prose text-center">
               <h1 className="text-primary font-bold text-4xl mb-4">R.S.V.P.</h1>
-              <p className="text-primary my-0 text-sm">
+              <p className="text-primary my-0 text-lg">
                 {confirmedAttendees().length > 0
                   ? "We're glad you could make it."
                   : "Sucks you can't make it."}
               </p>
-              <h2 className="text-primary my-0 text-base">
+              <h2 className="text-primary my-0 text-xl">
                 {confirmedAttendees().length > 0
-                  ? "We'll see you there "
+                  ? "Looking forward to seeing you "
                   : `But if you ever change you mind${
                       attendeeDetails.attendees.length > 1 ? "s" : ""
                     } `}
                 <br />
-                <span className="font-poiretone">{attendeeDetails.name}</span>
+                <span className="font-poiretone text-4xl">
+                  {attendeeDetails.name}
+                </span>
               </h2>
-              {confirmedAttendees().length > 0 ? (
-                <p className="text-xs text-primary">
+              {(attendeeDetails.type === "family" ||
+                attendeeDetails.plusOne) && (
+                <p className="text-base text-primary">
                   (
-                  {confirmedAttendees().map(
-                    (attendee: string, index: number) => (
-                      <span key={attendee}>
-                        {confirmedAttendees().length > 1 &&
-                        index === confirmedAttendees().length - 1
-                          ? " & " + attendee
-                          : `${index === 0 ? "" : ", "}` + attendee}
-                      </span>
-                    )
-                  )}
+                  {(confirmedAttendees().length > 0
+                    ? confirmedAttendees()
+                    : attendeeDetails.attendees.map(
+                        (attendee: any) => attendee.firstName
+                      )
+                  ).map((attendee: string, index: number) => (
+                    <span key={attendee}>
+                      {confirmedAttendees().length > 1 &&
+                      index === confirmedAttendees().length - 1
+                        ? " & " + attendee
+                        : `${index === 0 ? "" : ", "}` + attendee}
+                    </span>
+                  ))}
                   )
                 </p>
-              ) : (
-                <></>
               )}
-              <p className="text-primary mt-10 text-sm">
+              <p className="text-primary mt-10 text-lg">
                 {confirmedAttendees().length > 0 ? (
                   <span>
                     If you want to make changes to your response{" "}
@@ -174,26 +222,30 @@ const RSVPForm = ({
           <>
             <article className="prose text-center">
               <h1 className="text-primary font-bold text-4xl mb-4">R.S.V.P.</h1>
-              <h2 className="text-primary my-0 text-base">
+              <h2 className="text-primary my-0 text-xl">
                 We would love for you to come,
                 <br />
-                <span className="font-poiretone">{attendeeDetails.name}</span>
+                <span className="font-poiretone text-4xl">
+                  {attendeeDetails.name}
+                </span>
                 <span>!</span>
               </h2>
-              <p className="text-xs text-primary">
-                (
-                {attendeeDetails.attendees.map(
-                  (attendee: any, index: number) => (
-                    <span key={attendee.firstName}>
-                      {attendeeDetails.attendees.length > 1 &&
-                      index === attendeeDetails.attendees.length - 1
-                        ? " & " + attendee.firstName
-                        : `${index === 0 ? "" : ", "}` + attendee.firstName}
-                    </span>
+              {attendeeDetails.tpye === "family" && (
+                <p className="text-base text-primary">
+                  (
+                  {attendeeDetails.attendees.map(
+                    (attendee: any, index: number) => (
+                      <span key={attendee.firstName}>
+                        {attendeeDetails.attendees.length > 1 &&
+                        index === attendeeDetails.attendees.length - 1
+                          ? " & " + attendee.firstName
+                          : `${index === 0 ? "" : ", "}` + attendee.firstName}
+                      </span>
+                    )
+                  )}
                   )
-                )}
-                )
-              </p>
+                </p>
+              )}
             </article>
             <motion.div
               key="flower-divider-1"
@@ -211,7 +263,7 @@ const RSVPForm = ({
               />
             </motion.div>
             <article className="prose text-center">
-              <p className="text-primary text-base mb-0 font-semibold">
+              <p className="text-primary text-xl mb-2 font-semibold">
                 {showPartialYesForm
                   ? "Who's going to join"
                   : "Will you be joining"}{" "}
@@ -287,8 +339,16 @@ const RSVPForm = ({
                         }}
                       >
                         <button
-                          className="btn btn-primary btn-outline btn-sm w-36 float-end"
-                          onClick={() => handleUpdateRSVP("yesToAll")}
+                          className={`btn btn-primary ${
+                            !showPlusOneForm && "btn-outline"
+                          } btn-sm w-36 float-end`}
+                          onClick={() =>
+                            handleUpdateRSVP(
+                              attendeeDetails.type === "single"
+                                ? "singleYes"
+                                : "yesToAll"
+                            )
+                          }
                         >
                           Yes
                         </button>
@@ -303,7 +363,13 @@ const RSVPForm = ({
                       >
                         <button
                           className="btn btn-primary btn-sm btn-outline w-36 float-start"
-                          onClick={() => handleUpdateRSVP("noToAll")}
+                          onClick={() =>
+                            handleUpdateRSVP(
+                              attendeeDetails.type === "single"
+                                ? "singleNo"
+                                : "noToAll"
+                            )
+                          }
                         >
                           No
                         </button>
@@ -333,45 +399,57 @@ const RSVPForm = ({
                           </button>
                         </motion.div>
                       </>
+                    ) : attendeeDetails.type === "single" && showPlusOneForm ? (
+                      <motion.div
+                        key="plusOne"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ ease: "easeInOut", duration: 0.75 }}
+                      >
+                        <div className="flex justify-center">
+                          <div className="divider divider-primary text-primary my-2 w-3/4">
+                            <em>AND</em>
+                          </div>
+                        </div>
+                        <p className="text-primary text-xl mt-0 mb-2  font-semibold">
+                          Will you be bringing a +1?
+                        </p>
+                        <div className="grid grid-cols-2 gap-4 mb-2">
+                          <motion.div
+                            className="col-span-1"
+                            key="plus1-yes"
+                            whileHover={{
+                              scale: 1.02,
+                              transition: { duration: 0.25 },
+                            }}
+                          >
+                            <button
+                              className="btn btn-primary btn-outline btn-sm w-36 float-end"
+                              onClick={() => handleUpdateRSVP("plusOneYes")}
+                            >
+                              Yes
+                            </button>
+                          </motion.div>
+                          <motion.div
+                            key="plus1-no"
+                            whileHover={{
+                              scale: 1.02,
+                              transition: { duration: 0.25 },
+                            }}
+                            className="col-span-1"
+                          >
+                            <button
+                              className="btn btn-primary btn-sm btn-outline w-36 float-start"
+                              onClick={() => handleUpdateRSVP("plusOneNo")}
+                            >
+                              No
+                            </button>
+                          </motion.div>
+                        </div>
+                      </motion.div>
                     ) : (
-                      attendeeDetails.type === "single" && (
-                        <>
-                          <div className="flex justify-center">
-                            <div className="divider divider-primary text-primary my-2 w-3/4">
-                              <em>AND</em>
-                            </div>
-                          </div>
-                          <p className="text-primary text-base my-0  font-semibold">
-                            Will you be bringing a +1?
-                          </p>
-                          <div className="grid grid-cols-2 gap-4 mb-2">
-                            <motion.div
-                              className="col-span-1"
-                              key="plus1-yes"
-                              whileHover={{
-                                scale: 1.02,
-                                transition: { duration: 0.25 },
-                              }}
-                            >
-                              <button className="btn btn-primary btn-outline btn-sm w-36 float-end">
-                                Yes
-                              </button>
-                            </motion.div>
-                            <motion.div
-                              key="plus1-no"
-                              whileHover={{
-                                scale: 1.02,
-                                transition: { duration: 0.25 },
-                              }}
-                              className="col-span-1"
-                            >
-                              <button className="btn btn-primary btn-sm btn-outline w-36 float-start">
-                                No
-                              </button>
-                            </motion.div>
-                          </div>
-                        </>
-                      )
+                      <></>
                     )}
                   </motion.div>
                 )}
