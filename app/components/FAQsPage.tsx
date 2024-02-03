@@ -48,7 +48,7 @@ const FAQsPage = () => {
           transition={{ ease: "easeInOut", duration: 1.5 }}
         >
           <Image
-            className="mx-auto my-4"
+            className="mx-auto my-4 w-fit h-fit"
             src={"/assets/img/flower-divider.png"}
             alt="flower divider"
             width={150}

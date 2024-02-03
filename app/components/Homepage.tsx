@@ -56,7 +56,7 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
           transition={{ ease: "easeInOut", duration: 1.5 }}
         >
           <Image
-            className="mx-auto mb-10 w-full h-full"
+            className="mx-auto mb-10 w-fit h-fit"
             src={"/assets/img/flower-divider.png"}
             alt="flower divider"
             width={150}

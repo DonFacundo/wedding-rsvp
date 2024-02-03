@@ -41,7 +41,7 @@ const VenuePage = () => {
             transition={{ ease: "easeInOut", duration: 1.5 }}
           >
             <Image
-              className="mx-auto my-1 w-full h-full"
+              className="mx-auto my-1 w-fit h-fit"
               src={"/assets/img/flower-divider.png"}
               alt="flower divider"
               width={75}
@@ -89,7 +89,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -99,7 +99,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -109,7 +109,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -119,7 +119,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -129,7 +129,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -139,7 +139,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -149,7 +149,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -159,7 +159,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -169,7 +169,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
           <div className="carousel-item mt-2 w-fit h-96">
@@ -179,7 +179,7 @@ const VenuePage = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full lg:w-full h-full"
+              className="w-fit h-auto"
             />
           </div>
         </div>
