@@ -230,7 +230,7 @@ const RSVPForm = ({
                 </span>
                 <span>!</span>
               </h2>
-              {attendeeDetails.tpye === "family" && (
+              {attendeeDetails.type === "family" && (
                 <p className="text-base text-primary">
                   (
                   {attendeeDetails.attendees.map(
