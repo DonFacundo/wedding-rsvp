@@ -158,7 +158,7 @@ const RSVPForm = ({
               <h1 className="text-primary font-bold text-4xl mb-4">R.S.V.P.</h1>
               <p className="text-primary my-0 text-lg">
                 {confirmedAttendees().length > 0
-                  ? "We're glad you could make it."
+                  ? "We're glad you can make it."
                   : "Sucks you can't make it."}
               </p>
               <h2 className="text-primary my-0 text-xl">

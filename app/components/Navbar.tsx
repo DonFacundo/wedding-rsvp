@@ -15,7 +15,7 @@ const Navbar = ({ slug }: { slug: string }) => {
       exit={{ opacity: 0, y: -10 }}
       transition={{ ease: "easeInOut", duration: 0.2, delay: 0 }}
     >
-      <div className="navbar fixed text-white bg-base-200 font-playfair bg-opacity-20">
+      <div className="navbar fixed text-white bg-base-200 font-playfair bg-opacity-20 z-50">
         <div className="navbar-start">
           <div className="drawer lg:hidden w-fit">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
