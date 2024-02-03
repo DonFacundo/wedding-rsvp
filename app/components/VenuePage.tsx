@@ -5,20 +5,20 @@ import Image from "next/image";
 const VenuePage = () => {
   return (
     <AnimatePresence key="venue-page">
-      <div className="h-96 w-full flex flex-col justify-center items-center bg-secondary pt-16">
+      <div className="h-fit w-full flex flex-col justify-center items-center bg-secondary pt-48 pb-32">
         <motion.div
           key="settlers-logo"
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
+          exit={{ opacity: 0, y: -30 }}
           transition={{ ease: "easeInOut", duration: 2 }}
         >
           <Image
             src="/assets/img/settlers-logo.png"
             alt="settlers-logo"
-            width={100}
-            height={100}
-            className="mb-4"
+            width={150}
+            height={150}
+            className="mb-4 w-full h-full"
           />
         </motion.div>
         <article className="prose text-center">
@@ -27,7 +27,7 @@ const VenuePage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ ease: "easeInOut", duration: 0.25 }}
+            transition={{ ease: "easeInOut", duration: 0.5 }}
           >
             <h1 className="text-2xl text-primary mb-0">
               Settlers Country Manor
@@ -41,7 +41,7 @@ const VenuePage = () => {
             transition={{ ease: "easeInOut", duration: 1.5 }}
           >
             <Image
-              className="mx-auto my-1"
+              className="mx-auto my-1 w-full h-full"
               src={"/assets/img/flower-divider.png"}
               alt="flower divider"
               width={75}
@@ -53,7 +53,7 @@ const VenuePage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ ease: "easeInOut", duration: 0.25, delay: 0.25 }}
+            transition={{ ease: "easeInOut", duration: 0.5, delay: 0.5 }}
           >
             <p className="text-base text-primary my-1">
               <em>81 Waimauku Station Road</em>
@@ -65,7 +65,7 @@ const VenuePage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ ease: "easeInOut", duration: 0.25, delay: 0.5 }}
+            transition={{ ease: "easeInOut", duration: 0.5, delay: 0.5 }}
           >
             <p className="text-base text-primary my-1">
               <em>Waimauku 0812</em>
@@ -82,84 +82,104 @@ const VenuePage = () => {
         transition={{ ease: "easeInOut", duration: 0.25, delay: 0.75 }}
       >
         <div className="carousel carousel-center -mb-10">
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-1.jpg"
               alt="settlers-1"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-2.jpg"
               alt="settlers-2"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-3.jpg"
               alt="settlers-3"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-4.jpg"
               alt="settlers-4"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-5.jpg"
               alt="settlers-5"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-1.jpg"
               alt="settlers-1"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-2.jpg"
               alt="settlers-2"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-3.jpg"
               alt="settlers-3"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-4.jpg"
               alt="settlers-4"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
-          <div className="carousel-item mt-2">
+          <div className="carousel-item mt-2 w-fit h-96">
             <Image
               src="/assets/img/settlers-5.jpg"
               alt="settlers-5"
-              width={300}
-              height={1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-full h-full"
             />
           </div>
         </div>

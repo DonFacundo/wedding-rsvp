@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import RSVPForm from "./RSVPForm";
-import useWindowDimensions from "@/hooks/useWindowDimension";
 
 const RSVPpage = ({
   attendeeDetails,
@@ -11,49 +10,31 @@ const RSVPpage = ({
   attendeeDetails: any;
   slug: string;
 }) => {
-  const { width, height } = useWindowDimensions();
-
-  const [bg, setBg] = useState(
-    width && width < 500
-      ? `/assets/img/weddingrsvp1-mob.JPG`
-      : `/assets/img/weddingrsvp1.JPG`
-  );
+  const [bg, setBg] = useState(1);
 
   useEffect(() => {
     const bgChange = setInterval(() => {
-      if (
-        bg === "/assets/img/weddingrsvp1.JPG" ||
-        bg === "/assets/img/weddingrsvp1-mob.JPG"
-      )
-        setBg(
-          width && width < 500
-            ? `/assets/img/weddingrsvp2-mob.JPG`
-            : `/assets/img/weddingrsvp2.JPG`
-        );
-      else
-        setBg(
-          width && width < 500
-            ? `/assets/img/weddingrsvp1-mob.JPG`
-            : `/assets/img/weddingrsvp1.JPG`
-        );
+      bg === 1 ? setBg(2) : setBg(1);
     }, 5000);
     return () => clearInterval(bgChange);
   }, [bg]);
 
   return (
-    <>
-      {width && (
-        <div
-          className={`h-screen w-full bg-secondary bg-left bg-cover bg-no-repeat flex items-center`}
-          style={{
-            backgroundImage: `url(${bg})`,
-            transition: `background-image 1s ease-in-out`,
-          }}
-        >
-          <RSVPForm attendeeDetails={attendeeDetails} slug={slug} />
-        </div>
-      )}
-    </>
+    <div
+      className={`h-screen w-full bg-secondary 
+      ${
+        bg === 1
+          ? "bg-wedding-1-mob md:bg-wedding-1"
+          : "bg-wedding-2-mob md:bg-wedding-2"
+      }
+      
+      bg-left bg-cover bg-no-repeat flex items-center`}
+      style={{
+        transition: `background-image 1s ease-in-out`,
+      }}
+    >
+      <RSVPForm attendeeDetails={attendeeDetails} slug={slug} />
+    </div>
   );
 };
 
