@@ -149,10 +149,6 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: any }) => {
         >
           <p className="font-poiretone text-secondary text-xs">
             {daysLeft.daysLeft} day{daysLeft.daysLeft > 1 && "s"} to go.
-            <br />
-            {daysLeft.eventDate.seconds}
-            <br />
-            {daysLeft.currentDate.seconds}
           </p>
         </motion.div>
       </motion.div>
