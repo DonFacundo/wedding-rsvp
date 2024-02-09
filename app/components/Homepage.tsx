@@ -95,6 +95,7 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
           <h1 className="text-xl md:text-3xl text-white font-poiretone">
             MAY 9, 2024
           </h1>
+          <h1 className="text-sm text-white font-poiretone">4:00 PM</h1>
         </motion.div>
         <motion.div
           key="wedding-venue"

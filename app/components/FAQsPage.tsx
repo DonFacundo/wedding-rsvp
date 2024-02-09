@@ -43,7 +43,7 @@ const FAQsPage = () => {
             When is the RSVP Deadline?
           </p>
           <p className="text-base text-primary font-poiretone mt-0">
-            The RSVP deadline is on the 15th of February 2024.
+            The RSVP deadline is on the 25th of February 2024.
           </p>
         </motion.div>
         <motion.div

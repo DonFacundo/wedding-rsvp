@@ -150,31 +150,31 @@ const RSVPForm = ({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
         exit={{ opacity: 0, x: 20 }}
-        className="bg-secondary h-fit bg-opacity-60 p-4 sm:p-8 rounded-lg md:mr-20 2xl:mr-80 mx-6 max-w-xl w-full md:w-2/5 md:order-2 md:ml-auto border-none drop-shadow-2xl"
+        className="bg-secondary h-fit bg-opacity-60 p-4 sm:p-8 -mt-16 md:mt-0 rounded-lg md:mr-20 2xl:mr-80 mx-6 max-w-xl w-full md:w-2/5 md:order-2 md:ml-auto border-none drop-shadow-2xl"
       >
         {attendeeDetails.lastUpdated && !updateRSVPForm ? (
           <>
             <article className="prose text-center">
               <h1 className="text-primary font-bold text-4xl mb-4">R.S.V.P.</h1>
-              <p className="text-primary my-0 text-lg">
+              <p className="text-primary my-0 text-base md:text-lg">
                 {confirmedAttendees().length > 0
                   ? "We're glad you can make it."
                   : "Sucks you can't make it."}
               </p>
-              <h2 className="text-primary my-0 text-xl">
+              <h2 className="text-primary my-0 text-lg md:text-xl">
                 {confirmedAttendees().length > 0
                   ? "Looking forward to seeing you "
                   : `But if you ever change you mind${
                       attendeeDetails.attendees.length > 1 ? "s" : ""
                     } `}
                 <br />
-                <span className="font-poiretone text-4xl">
+                <span className="font-poiretone text-3xl md:text-4xl">
                   {attendeeDetails.name}
                 </span>
               </h2>
               {(attendeeDetails.type === "family" ||
                 attendeeDetails.plusOne) && (
-                <p className="text-base text-primary">
+                <p className="text-sm md:text-base text-primary">
                   (
                   {(confirmedAttendees().length > 0
                     ? confirmedAttendees()
@@ -192,7 +192,7 @@ const RSVPForm = ({
                   )
                 </p>
               )}
-              <p className="text-primary mt-10 text-lg">
+              <p className="text-primary mt-10 text-base md:text-lg">
                 {confirmedAttendees().length > 0 ? (
                   <span>
                     If you want to make changes to your response{" "}
