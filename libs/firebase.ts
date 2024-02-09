@@ -44,7 +44,11 @@ const getDaysLeftBeforeEvent = async () => {
   const currentDate = Timestamp.now();
 
   const diff = eventDate.toMillis() - currentDate.toMillis();
-  return Math.ceil(diff / (1000 * 60 * 60 * 24));
+  return {
+    eventDate,
+    currentDate,
+    daysLeft: Math.ceil(diff / (1000 * 60 * 60 * 24)),
+  };
 };
 
 const updateRSVP = async (collection: string, docId: string, data: any) => {

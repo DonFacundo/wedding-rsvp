@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
+const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: any }) => {
   return (
     <>
       <motion.div
@@ -148,7 +148,11 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
           className="w-full flex justify-center mt-4"
         >
           <p className="font-poiretone text-secondary text-xs">
-            {daysLeft} day{daysLeft > 1 && "s"} to go.
+            {daysLeft.daysLeft} day{daysLeft.daysLeft > 1 && "s"} to go.
+            <br />
+            {daysLeft.eventDate.seconds}
+            <br />
+            {daysLeft.currentDate.seconds}
           </p>
         </motion.div>
       </motion.div>
