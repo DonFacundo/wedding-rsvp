@@ -5,7 +5,14 @@ import { motion } from "framer-motion";
 
 const FAQsPage = () => {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center bg-secondary py-16 px-8">
+    <motion.div
+      key="attire"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ ease: "easeInOut", duration: 0.5 }}
+      className="min-h-screen w-full flex flex-col items-center bg-secondary bg-autumn-leaves bg-center bg-no-repeat bg-cover py-16 px-8"
+    >
       <article className="prose w-full mt-8">
         <motion.div
           key="faq-title"
@@ -39,7 +46,6 @@ const FAQsPage = () => {
             The RSVP deadline is on the 15th of February 2024.
           </p>
         </motion.div>
-
         <motion.div
           key="flower-divider-1"
           initial={{ opacity: 0 }}
@@ -51,7 +57,7 @@ const FAQsPage = () => {
             className="mx-auto my-4 w-fit h-fit"
             src={"/assets/img/flower-divider.png"}
             alt="flower divider"
-            width={150}
+            width={75}
             height={50}
           />
         </motion.div>
@@ -62,7 +68,9 @@ const FAQsPage = () => {
           exit={{ opacity: 0 }}
           transition={{ ease: "easeInOut", duration: 0.5, delay: 0.75 }}
         >
-          <h2 className="text-xl text-primary font-bold">The Ceremony</h2>
+          <h2 className="text-xl text-primary font-bold mt-0">
+            The Ceremony and Reception
+          </h2>
         </motion.div>
         <motion.div
           key="cerem-1"
@@ -125,9 +133,12 @@ const FAQsPage = () => {
           <p className="text-base text-primary font-poiretone mt-0">
             We&apos;re so glad you&apos;re as excited as we are about our
             special day! We kindly ask for an unplugged ceremony to fully
-            preserve the solemnity of the ceremony. We encourage everyone to be
+            preserve the solemnity of the event. We encourage everyone to be
             present in the moment as we have a dedicated photographer to capture
             our magical moments in photos.
+            <br />
+            <br />
+            Guests are welcome to take pictures once the cocktail hour begins.
           </p>
         </motion.div>
         <motion.div
@@ -172,14 +183,15 @@ const FAQsPage = () => {
             What can we bring you as a wedding gift?
           </p>
           <p className="text-base text-primary font-poiretone mt-0">
-            Sharing this special day with us is the best gift we could ask for,
-            but if you would like to give us a gift, a contribution to our
-            future plans would be sincerely appreciated as we embark on this new
-            chapter together. Your love and support means the world to us.
+            You sharing this special day with us is the best gift we could ask
+            for, but if you would like to give us a gift, a contribution to our
+            future plans through our wishing well would be sincerely appreciated
+            as we embark on this new chapter together. Your love and support
+            means the world to us.
           </p>
         </motion.div>
       </article>
-    </div>
+    </motion.div>
   );
 };
 

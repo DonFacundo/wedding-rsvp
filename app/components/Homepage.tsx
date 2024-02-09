@@ -137,7 +137,7 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
             scale: 1.1,
             transition: { duration: 0.25 },
           }}
-          className="w-full flex justify-center mt-2"
+          className="w-full flex justify-center mt-4"
         >
           <p className="font-poiretone text-secondary text-xs">
             {daysLeft} day{daysLeft > 1 && "s"} to go.
@@ -163,8 +163,8 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
             </p>
             <p className="text-primary font-poiretone">
               Your presence in the celebration of our love means the world to us
-              and we can’t wait for you to share in the joy and excitement of
-              this magical day.
+              and we can&apos;t wait for you to share in the joy and excitement
+              of this magical day.
             </p>
             <p className="text-primary font-poiretone">
               Please feel free to explore the various sections of this website,
@@ -172,7 +172,7 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
               we say “I do”.
             </p>
             <p className="text-primary font-poiretone">
-              Thank you for being part of our love story. We can’t wait to
+              Thank you for being part of our love story. We can&apos;t wait to
               create more wonderful memories with you.
             </p>
             <p className="text-primary font-poiretone">With love,</p>

@@ -16,8 +16,8 @@ const VenuePage = () => {
           <Image
             src="/assets/img/settlers-logo.png"
             alt="settlers-logo"
-            width={150}
-            height={150}
+            width={3000}
+            height={3000}
             className="mb-4 w-full h-full"
           />
         </motion.div>

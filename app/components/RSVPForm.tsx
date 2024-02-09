@@ -202,6 +202,7 @@ const RSVPForm = ({
                     >
                       click here
                     </a>
+                    <br />
                   </span>
                 ) : (
                   <span>

@@ -16,6 +16,7 @@ const config: Config = {
         "wedding-2": "url('/assets/img/weddingrsvp2.JPG')",
         "wedding-1-mob": "url('/assets/img/weddingrsvp1-mob.JPG')",
         "wedding-2-mob": "url('/assets/img/weddingrsvp2-mob.JPG')",
+        "autumn-leaves": "url('/assets/img/autumn-leaves-1.png')",
       },
     },
   },
