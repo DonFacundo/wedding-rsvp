@@ -11,7 +11,7 @@ const FAQsPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ ease: "easeInOut", duration: 0.5 }}
-      className="min-h-screen w-full flex flex-col items-center bg-secondary bg-autumn-leaves bg-center bg-no-repeat bg-cover py-16 px-8"
+      className="min-h-screen w-full flex flex-col items-center bg-secondary bg-autumn-leaves-alt bg-center bg-no-repeat bg-cover py-16 px-8"
     >
       <article className="prose w-full mt-8">
         <motion.div

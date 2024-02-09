@@ -8,7 +8,14 @@ import Link from "next/link";
 const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
   return (
     <>
-      <div className="text-center w-full bg-[url('/assets/img/flower-border3.png')] bg-center bg-cover bg-no-repeat py-28">
+      <motion.div
+        key="home"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ ease: "easeInOut", duration: 0.5, delay: 0 }}
+        className="text-center w-full bg-autumn-leaves bg-center bg-cover bg-no-repeat py-28"
+      >
         <motion.div
           key="groom-name"
           initial={{ opacity: 0, y: 10 }}
@@ -143,8 +150,8 @@ const Homepage = ({ slug, daysLeft }: { slug: string; daysLeft: number }) => {
             {daysLeft} day{daysLeft > 1 && "s"} to go.
           </p>
         </motion.div>
-      </div>
-      <div className="w-full py-16 bg-secondary flex flex-col items-center text-secondary px-12">
+      </motion.div>
+      <div className="w-full py-20 bg-secondary flex flex-col items-center text-secondary px-12">
         <motion.div
           key="welcome-message"
           initial={{ opacity: 0 }}
