@@ -65,7 +65,20 @@ const RSVPForm = ({
         router.refresh();
         break;
       case "singleYes":
-        setShowPlusOneForm(true);
+        if (attendeeDetails.allowPlusOne) setShowPlusOneForm(true);
+        else {
+          attendeeDetails.attendees = attendeeDetails.attendees.map(
+            (attendee: any) => ({ ...attendee, rsvp: true })
+          );
+          attendeeDetails.plusOne = false;
+          await updateRSVP("rsvp", slug, attendeeDetails);
+          conductor?.shoot();
+          setUpdateShowRSVPForm(false);
+          setPartialSelections(
+            attendeeDetails.attendees.map((attendee: any) => attendee.firstName)
+          );
+          router.refresh();
+        }
         break;
       case "singleNo":
         attendeeDetails.attendees = attendeeDetails.attendees.map(

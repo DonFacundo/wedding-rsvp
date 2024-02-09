@@ -40,7 +40,7 @@ const getAttendeeDetails = async (collection: any, docId: string) => {
 };
 
 const getDaysLeftBeforeEvent = async () => {
-  const eventDate = Timestamp.fromDate(new Date(2024, 4, 9));
+  const eventDate = Timestamp.fromDate(new Date(2024, 4, 8, 12, 0, 0, 0));
   const currentDate = Timestamp.now();
 
   const diff = eventDate.toMillis() - currentDate.toMillis();
