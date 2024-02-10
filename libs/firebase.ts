@@ -6,6 +6,9 @@ import {
   Timestamp,
   serverTimestamp,
   updateDoc,
+  getDocs,
+  query,
+  collection,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -23,6 +26,24 @@ const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 const db = getFirestore(app);
+
+const getAttendees = async (coll: any) => {
+  const q = query(collection(db, coll));
+
+  let result = <any[]>[];
+  let error = null;
+
+  try {
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      result.push({ ...doc.data(), id: doc.id });
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return { result, error };
+};
 
 const getAttendeeDetails = async (collection: any, docId: string) => {
   let docRef = doc(db, collection, docId);
@@ -57,4 +78,4 @@ const updateRSVP = async (collection: string, docId: string, data: any) => {
   await updateDoc(docRef, { ...data, lastUpdated: serverTimestamp() });
 };
 
-export { getAttendeeDetails, getDaysLeftBeforeEvent, updateRSVP };
+export { getAttendees, getAttendeeDetails, getDaysLeftBeforeEvent, updateRSVP };
