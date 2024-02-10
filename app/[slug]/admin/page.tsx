@@ -4,7 +4,23 @@ import Navbar from "@/app/components/Navbar";
 
 const getAttendeeData = async (slug: string) => {
   const data = await getAttendees("rsvp").then((res) => res);
-  return slug === "GertrudeArabella" ? data.result : null;
+  return slug === "GertrudeArabella"
+    ? data.result.sort((a, b) => {
+        if (a.type < b.type) {
+          return 1;
+        }
+        if (a.type > b.type) {
+          return -1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      })
+    : null;
 };
 
 export default async function RSVP({ params }: { params: any }) {
